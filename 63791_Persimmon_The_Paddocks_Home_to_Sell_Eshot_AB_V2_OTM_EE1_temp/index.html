@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en-GB" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" spellcheck="true"><head>
+    <meta charset="utf-8"> <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+    <meta name="x-apple-disable-message-reformatting"> <!-- Disable auto-scale in iOS 10 Mail entirely -->
+    <title></title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+    <!-- Web Font / @font-face : BEGIN -->
+    <!-- NOTE: If web fonts are not required, lines 10 - 27 can be safely removed. -->
+    <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+    <!--[if mso]>
+        <style>
+            * {
+                font-family: sans-serif !important;
+            }
+        </style>
+    <![endif]-->
+    <!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+    <!--[if !mso]><!-->
+    <!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+    <!--<![endif]-->
+    <!-- Web Font / @font-face : END -->
+    <!-- CSS Reset : BEGIN -->
+    <style>
+    /* What it does: Remove spaces around the email design added by some email clients. */
+    /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+    html,
+    body {
+        margin: 0 auto !important;
+        padding: 0 !important;
+        height: 100% !important;
+        width: 100% !important;
+    }
+
+    /* What it does: Stops email clients resizing small text. */
+    * {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    /* What it does: Centers email on Android 4.4 */
+    div[style*="margin: 16px 0"] {
+        margin: 0 !important;
+    }
+
+    /* What it does: Stops Outlook from adding extra spacing to tables. */
+    table,
+    td {
+        mso-table-lspace: 0pt !important;
+        mso-table-rspace: 0pt !important;
+    }
+
+    /* What it does: Fixes webkit padding issue. */
+    table {
+        border-spacing: 0 !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        margin: 0 auto !important;
+    }
+
+    /* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
+    a {
+        text-decoration: none;
+    }
+
+    /* What it does: Uses a better rendering method when resizing images in IE. */
+    img {
+        -ms-interpolation-mode: bicubic;
+    }
+
+    /* What it does: A work-around for email clients meddling in triggered links. */
+    a[x-apple-data-detectors],
+    /* iOS */
+    .unstyle-auto-detected-links a,
+    .aBn {
+        border-bottom: 0 !important;
+        cursor: default !important;
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+    }
+
+    /* What it does: Prevents Gmail from changing the text color in conversation threads. */
+    .im {
+        color: inherit !important;
+    }
+
+    /* What it does: Prevents Gmail from displaying a download button on large, non-linked images. */
+    .a6S {
+        display: none !important;
+        opacity: 0.01 !important;
+    }
+
+    /* If the above doesn't work, add a .g-img class to any image in question. */
+    img.g-img+div {
+        display: none !important;
+    }
+
+    /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+    /* Create one of these media queries for each additional viewport size you'd like to fix */
+
+    /* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+        u~div .email-container {
+            min-width: 320px !important;
+        }
+    }
+
+    /* iPhone 6, 6S, 7, 8, and X */
+    @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+        u~div .email-container {
+            min-width: 375px !important;
+        }
+    }
+
+    /* iPhone 6+, 7+, and 8+ */
+    @media only screen and (min-device-width: 414px) {
+        u~div .email-container {
+            min-width: 414px !important;
+        }
+    }
+    </style>
+    <!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+<![endif]-->
+    <!-- CSS Reset : END -->
+    <!-- Progressive Enhancements : BEGIN -->
+    <style>
+    /* What it does: Hover styles for buttons */
+    .button-td,
+    .button-a {
+        transition: all 100ms ease-in;
+    }
+
+    .button-td-primary:hover,
+    .button-a-primary:hover {
+        background: #555555 !important;
+        border-color: #555555 !important;
+    }
+
+    .buttoncolour {
+        color: #ffffff !important;
+    }
+
+    /* Media Queries */
+    @media screen and (max-width: 600px) {
+
+        .email-container {
+            width: 100% !important;
+            margin: auto !important;
+        }
+
+        /* What it does: Forces table cells into full-width rows. */
+        .stack-column,
+        .stack-column-center {
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            direction: ltr !important;
+        }
+
+        /* And center justify these ones. */
+        .stack-column-center {
+            text-align: center !important;
+        }
+
+        /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+        .center-on-narrow {
+            text-align: center !important;
+            display: block !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            float: none !important;
+        }
+
+        table.center-on-narrow {
+            display: inline-block !important;
+        }
+
+        /* What it does: Adjust typography on small screens to improve readability */
+        .email-container p {
+            font-size: 17px !important;
+        }
+
+        .mobpadx {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .mobpady {
+            padding-top: 20px !important;
+            padding-bottom: 20px !important;
+        }
+
+        .mobpadicon {
+            padding-top: 10px !important;
+            padding-bottom: 20px !important;
+        }
+
+        .mobhide {
+            display: none !important;
+        }
+
+        .mobcenter {
+            text-align: center !important;
+        }
+
+        .mobpadnone {
+            padding: 0 !important;
+        }
+
+        .mobpadbot {
+            padding-bottom: 20px !important;
+        }
+
+        .mobpadtop {
+            padding-top: 20px !important;
+        }
+
+        .mobpadtopnone {
+            padding-top: 0px !important;
+        }
+
+        .bordernone {
+            border: none !important;
+        }
+
+        .mobfont40 {
+            font-size: 40px !important;
+            line-height: 45px !important;
+        }
+
+
+        .mobfont20 {
+            font-size: 20px !important;
+            line-height: 25px !important;
+        }
+           .mobfont18 {
+            font-size: 18px !important;
+            line-height: 23px !important;
+        }
+
+        .mobfont25 {
+            font-size: 25px !important;
+            line-height: 30px !important;
+        }
+          .mobfont27 {
+            font-size: 27px !important;
+            line-height: 30px !important;
+        }
+    }
+    </style>
+    <!-- Progressive Enhancements : END -->
+</head>
+<!--
+    The email background color (#ffffff) is defined in three places:
+    1. body tag: for most email clients
+    2. center tag: for Gmail and Inbox mobile apps and web versions of Gmail, GSuite, Inbox, Yahoo, AOL, Libero, Comcast, freenet, Mail.ru, Orange.fr
+    3. mso conditional: For Windows 10 Mail
+-->
+
+<body width="100%" style="margin: 0px; background-color: rgb(255, 255, 255); padding: 0px !important; position: relative;" spellcheck="true">
+    <center style="width: 100%; background-color: #ffffff;">
+        <!--[if mso | IE]>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff;">
+    <tr>
+    <td>
+    <![endif]-->
+        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="margin: 0px auto; background-color: #ffffff;table-layout: auto;" class="email-container" ee-template-version="8.0" bgcolor="#ffffff">
+            <tbody>
+                <tr>
+                    <td>
+                        <!-- Email Body : BEGIN -->
+                        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="margin: auto;" class="email-container">
+                            <tbody><tr>
+                                <td style="background-color: #00364e; padding: 40px 0px 40px 0px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                <div class="ee_editable">
+                                                    <a href="https://www.charleschurch.com/?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26"><img src="blob:http://localhost:3000/eb3524b5-a4b7-4143-ab36-dbf14f8c7184" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;"></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #a24557; padding: 30px 30px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td style="padding: 0px 0px 0px; font-family: Georgia, serif; font-size: 40px; line-height: 50px; color:#fff; text-align: center; font-weight: normal;" class="">
+                                                <div class="ee_editable mobfont27">
+                                                    Is your current home holding you back from luxury living?
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #00364e; padding: 0px 0px 0px 0px;">
+                                    <div class="ee_editable">
+                                        <a href="https://www.charleschurch.com/new-homes/south-east/the-paddocks?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26"><img src="blob:http://localhost:3000/d81fba5d-d04e-4f45-99e0-087c4813ea84" width="600" height="" alt="alt_text" border="0" style="width: 100%; max-width: 600px; height: auto; font-family: sans-serif; margin: auto; display: block;" class="g-img"></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #fcebe1; padding: 40px 0px 40px 0px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td style="padding: 0px 36px 0px; font-family: Georgia, serif; font-size: 24px; line-height: 30px; color: #00364e; text-align: center; font-weight: normal;" class="mobpadx">
+                                                <div class="ee_editable">
+                                                    You could secure your dream home sooner than you thought at The Paddocks, Horsmonden.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 35px 60px 0px; font-family: Georgia, serif; font-size: 24px; line-height: 28px; color: #00364e; text-align: center; font-weight: normal;" class="mobpadx">
+                                                <div class="ee_editable">
+                                                    With our range of schemes, you could experience a seamless move into a premium
+                                                    2, 3 or 4 bedroom home at The Paddocks.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 35px 60px 0px; font-family: Georgia, serif; font-size: 24px; line-height: 28px; color: #00364e; text-align: center; font-weight: normal;" class="mobpadx">
+                                                <div class="ee_editable">
+                                                    Take a step towards your dream home –
+                                                    book an appointment today.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 30px 0px 0px 0px; text-align: center; background-color: #fcebe1; line-height: 0px;">
+                                                <div class="ee_editable">
+                                                    <a href="https://www.charleschurch.com/new-homes/south-east/the-paddocks?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26"><img src="blob:http://localhost:3000/f2d5dd3a-9d15-4bfc-8c7d-4b493a3f8887" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #fcebe1; font-family: sans-serif;  color: #000000;"></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #fff; padding: 10px 0px 0px 0px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #dcf7f0; padding: 50px 0px 40px 0px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td style="padding: 0px 0px 30px 0px; font-family: Georgia, serif; font-size: 40px; line-height: 45px; color: #00364e; text-align: center; font-weight: normal;" class="mobpadx mobfont27">
+                                                <div class="ee_editable">
+                                                    Home to sell? We could help
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #dcf7f0; padding: 30px 20px 0px ;">
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody><tr>
+                                                        <!-- LEFT Column : BEGIN -->
+                                                        <th valign="center" width="40%" class="stack-column-center">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tbody><tr>
+                                                                    <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #dcf7f0; line-height: 0px;">
+                                                                        <div class="ee_editable">
+                                                                           <a href="https://www.charleschurch.com/ways-to-buy/part-exchange?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+emaisdl_25.03.26s" style="text-decoration: none; color: #000;">
+                                                                            <img src="blob:http://localhost:3000/17845f55-cde0-4303-83f8-af5c3111d087" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #dcf7f0; font-family: sans-serif;  color: #000000;"></a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </th>
+                                                        <!-- Column : END -->
+                                                        <!-- RIGHT Column : BEGIN -->
+                                                        <th valign="center" width="60%" class="stack-column-center">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tbody><tr>
+                                                                    <td style="padding: 0px 0px 0px; font-family: Georgia, serif; font-size: 30px; line-height: 38px; color: #00364e; text-align: left; font-weight: normal;" class="mobpadx">
+                                                                        <div class="ee_editable mobcenter mobpadtop mobfont25">
+                                                                            PART EXCHANGE<sup style="font-size: 14px; line-height: 0;">*</sup>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding: 6px 60px 0px 0px; font-family: Georgia, serif; font-size: 20px; line-height: 28px; color: #00364e; text-align: left; font-weight: normal;" class="mobpadx">
+                                                                        <div class="ee_editable mobcenter">
+                                                                            We could be your guaranteed buyer, meaning you could move into your brand-new Charles Church home sooner.
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </th>
+                                                        <!-- Column : END -->
+                                                    </tr>
+                                                </tbody></table>
+                                            </td>
+                                        </tr>
+                                        <!-- 2 Even Columns : END -->
+                                        <!-- 2 Even Columns : BEGIN -->
+                                        <tr>
+                                            <td dir="rtl" style="background-color: #dcf7f0; padding: 40px 20px 30px ;">
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody><tr>
+                                                        <!-- LEFT Column : BEGIN -->
+                                                        <th valign="center" width="40%" class="stack-column-center">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tbody><tr>
+                                                                    <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #dcf7f0; line-height: 0px;">
+                                                                        <div class="ee_editable">
+                                                                            <a href="https://www.charleschurch.com/ways-to-buy/home-change?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26" style="text-decoration: none; color: #000;">
+                                                                                <img src="blob:http://localhost:3000/8ef5eb5c-7613-48e6-8b22-afe1e7d45986" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #dcf7f0; font-family: sans-serif;  color: #000000;"></a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </th>
+                                                        <!-- Column : END -->
+                                                        <!-- RIGHT Column : BEGIN -->
+                                                        <th valign="center" width="60%" class="stack-column-center">
+                                                            <table dir="ltr" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tbody><tr>
+                                                                    <td style="padding: 0px 0px 0px 60px; font-family: Georgia, serif; font-size: 30px; line-height: 38px; color: #00364e; text-align: left; font-weight: normal;" class="mobcenter mobpadx mobpadtop">
+                                                                        <div class="ee_editable mobfont25">
+                                                                            HOME CHANGE<sup style="font-size: 14px; line-height: 0;">†</sup>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding: 6px 0px 0px 60px; font-family: Georgia, serif; font-size: 20px; line-height: 28px; color: #00364e; text-align: left; font-weight: normal;" class="mobpadx">
+                                                                        <div class="ee_editable mobcenter">
+                                                                            We could find a buyer for your current property, manage the sale from start to finish, and cover any estate agent fees.
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </th>
+                                                        <!-- Column : END -->
+                                                    </tr>
+                                                </tbody></table>
+                                            </td>
+                                        </tr>
+                                        <!-- 2 Even Columns : END -->
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #fff; padding: 15px 0px 0px 0px;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #007881; padding: 30px 30px;" class="mobpadnone">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tbody><tr>
+                                <td style="background-color: #81bcc2; padding: 0px 0px 0px 0px;">
+                                    <a href="https://www.charleschurch.com/new-homes/south-east/the-paddocks?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26" style="text-decoration: none; color: #000;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td style="background-color: #81bcc2; padding: 35px 0px 35px;">
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody><tr>
+                                                        <td style="padding: 0px 40px 30px; font-family: Georgia, serif; font-size: 40px; line-height: 45px; color: #00364e; text-align: center; font-weight: normal;" class="mobpadx mobfont27">
+                                                            <div class="ee_editable">
+                                                                Each home features
+                                                                enhanced specifications
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : BEGIN -->
+                                                    <tr>
+                                                        <td style="background-color: #81bcc2; padding: 0px 45px 0px;">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tbody><tr>
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="top" width="50%" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 3px 0px 0px 0px; text-align: center; background-color: #81bcc2; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/17141cd9-1b2c-4ab2-bf0f-463f10bb78ce" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #81bcc2; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td style="padding: 10px 26px 0px ; font-family: arial, sans-serif; font-size: 17px; line-height: 22px; color: #00364e; text-align: center; font-weight: normal;" class="mobpadx">
+                                                                                    <div class="ee_editable">
+                                                                                        INTEGRATED
+                                                                                        APPLIANCES
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="top" width="50%" class="stack-column-center mobpadtop">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 3px 0px 0px 0px; text-align: center; background-color: #81bcc2; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/ae674119-ccf3-491d-a875-d717e4347f00" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #81bcc2; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td style="padding: 10px 20px 0px ; font-family: arial, sans-serif; font-size: 17px; line-height: 22px; color: #00364e; text-align: center; font-weight: normal;" class="mobpadx">
+                                                                                    <div class="ee_editable">
+                                                                                        CHROME TOWEL RADIATORS
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : END -->
+                                                    <!-- 2 Even Columns : BEGIN -->
+                                                    <tr>
+                                                        <td style="background-color: #81bcc2; padding: 20px 45px 0px;" class="mobpadnone">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tbody><tr>
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="top" width="50%" class="stack-column-center mobpadtop">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 3px 0px 0px 0px; text-align: center; background-color: #81bcc2; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/54b0a1ec-1a61-4198-9a82-fb0bbc22b477" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #81bcc2; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td style="padding: 10px 26px 0px ; font-family: arial, sans-serif; font-size: 17px; line-height: 22px; color: #00364e; text-align: center; font-weight: normal;" class="mobpadx">
+                                                                                    <div class="ee_editable">
+                                                                                        ELECTRIC VEHICLE
+                                                                                        CHARGER
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="top" width="50%" class="stack-column-center mobpadtop">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 3px 0px 0px 0px; text-align: center; background-color: #81bcc2; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/3cf666f2-3209-40ab-8e3a-f30873617c81" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #81bcc2; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td style="padding: 10px 20px 0px ; font-family: arial, sans-serif; font-size: 17px; line-height: 22px; color: #00364e; text-align: center; font-weight: normal;" class="mobpadx">
+                                                                                    <div class="ee_editable">
+                                                                                        TURF&nbsp;TO
+                                                                                        REAR&nbsp;GARDEN
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : END -->
+                                                </tbody></table>
+                                            </td>
+                                        </tr>
+                                    </tbody></table></a>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #fff; padding: 30px 0px 15px 0px;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tbody><tr>
+                                <td style="padding: 0px 0px 30px 0px; font-family: Georgia, serif; font-size: 40px; line-height: 45px; color: #00364e; text-align: center; font-weight: normal;" class="mobpadx mobfont27">
+                                    <div class="ee_editable">
+                                        Take a closer look...
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #fff; line-height: 0px;">
+                                    <div class="ee_editable">
+                                      <a href="https://www.charleschurch.com/new-homes/south-east/the-paddocks?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26" style="text-decoration: none; color: #000;">
+                                        <img src="blob:http://localhost:3000/c5eccb5f-94be-4e4b-81e7-1c4d042502bd" width="100%" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #fff; font-family: sans-serif;  color: #000000;"></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #00364e; padding: 22px 0px 22px 0px;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <!-- 2 Even Columns : BEGIN -->
+                            <tbody><tr>
+                                <td style="background-color: #00364e; padding: 0px 0px 0px 0px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="">
+                                        <tbody><tr>
+                                            <!-- LEFT Column : BEGIN -->
+                                            <th valign="center" width="50%" class="stack-column-center">
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody><tr>
+                                                        <td style="padding: 0px 0px 0px 25px; font-family: Georgia, serif; font-size: 22px; line-height: 26px; color: #fff; text-align: left; font-weight: normal;" class="mobcenter mobpadx mobfont20 mobpadtop">
+                                                            <div class="ee_editable mobfont25">
+                                                                The Bloomsbury, Plot 14
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding: 10px 0px 20px 25px; font-family: arial, sans-serif; font-size: 18px; line-height: 22px; color: #fff; text-align: left; font-weight: bold;" class="mobcenter mobpadx mobfont20 mobpadtop">
+                                                            <div class="ee_editable">
+                                                                3 bedroom home,<br> £450,000
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : BEGIN -->
+                                                    <tr>
+                                                        <td style="background-color: #00364e; padding: 0px 0px 0px 25px;" class="mobpadx">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tbody><tr>
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="center" width="50" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/36ffc9fe-1f3f-4f13-9bdb-a6112adaaa52" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                    <!-- RIGHT Column : BEGIN -->
+                                                                    <th valign="center" width="200" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 0px 20px 0px 20px; font-family: Arial, sans-serif ; font-size: 15px; line-height: 19px; color: #fff; text-align: left; font-weight: normal;" class="mobpadx mobpadicon mobcenter">
+                                                                                    <div class="ee_editable">
+                                                                                        Spacious living/dining room with double doors to the garden
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : END -->
+                                                    <!-- 2 Even Columns : BEGIN -->
+                                                    <tr>
+                                                        <td style="background-color: #00364e; padding: 15px 0px 0px 25px ;" class="mobpadx">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tbody><tr>
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="center" width="50" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/b481bb4f-5627-4b17-a279-c03acc7d3685" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                    <!-- RIGHT Column : BEGIN -->
+                                                                    <th valign="center" width="200" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding:  0px 20px 0px 20px; font-family: Arial, sans-serif ; font-size: 15px; line-height: 19px; color: #fff; text-align: left; font-weight: normal;" class="mobpadx mobpadicon mobcenter">
+                                                                                    <div class="ee_editable">
+                                                                                        3 generously sized bedrooms
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : END -->
+                                                    <!-- 2 Even Columns : BEGIN -->
+                                                    <tr>
+                                                        <td style="background-color: #00364e; padding: 15px 0px 0px 25px  ;" class="mobpadx">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" ;="">
+                                                                <tbody><tr>
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="center" width="50" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/5a0bddb9-3d12-4f8e-8b46-55bcc5e73106" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                    <!-- RIGHT Column : BEGIN -->
+                                                                    <th valign="center" width="200" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding:  0px 20px 0px 20px; font-family: Arial, sans-serif ; font-size: 15px; line-height: 19px; color: #fff; text-align: left; font-weight: normal;" class="mobpadx mobpadicon mobcenter">
+                                                                                    <div class="ee_editable">
+                                                                                        Smart storage solutions
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : END -->
+                                                    <tr>
+                                                        <td style="padding: 20px 0px 0px 25px; text-align: left; background-color: #00364e; line-height: 0px;">
+                                                            <div class="ee_editable mobcenter">
+                                                                <a href="https://www.charleschurch.com/new-homes/south-east/the-paddocks?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26"><img src="blob:http://localhost:3000/ed599af0-6136-4dd9-a053-49f574181870" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;"></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </th>
+                                            <!-- Column : END -->
+                                            <!-- RIGHT Column : BEGIN -->
+                                            <th valign="center" width="50%" class="stack-column-center">
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody><tr>
+                                                        <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                            <div class="ee_editable mobpadtop">
+                                                                <a href="https://www.charleschurch.com/new-homes/south-east/the-paddocks?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26" style="text-decoration: none; color: #000;">
+                                                                    <img src="blob:http://localhost:3000/76bbec8c-dcb0-47d9-ad75-5576d66e8a89" width="100%" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;"></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </th>
+                                            <!-- Column : END -->
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                            <!-- 2 Even Columns : END -->
+                        </tbody></table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #fff; padding: 10px 0px 0px 0px;" class="mobhide">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td dir="rtl" style="background-color: #00364e; padding: 22px 0px 22px 0px;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <!-- 2 Even Columns : BEGIN -->
+                            <tbody><tr>
+                                <td style="background-color: #00364e; padding: 0px 0px 0px 0px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="">
+                                        <tbody><tr>
+                                            <!-- LEFT Column : BEGIN -->
+                                            <th valign="center" width="50%" class="stack-column-center">
+                                                <table dir="ltr" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody><tr>
+                                                        <td style="padding: 0px 0px 0px 25px; font-family: Georgia, serif; font-size: 22px; line-height: 26px; color: #fff; text-align: left; font-weight: normal;" class="mobcenter mobpadx mobfont20 mobpadtop">
+                                                            <div class="ee_editable mobfont25">
+                                                                The Whiteleaf, Plot 3
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding: 10px 0px 20px 25px; font-family: arial, sans-serif; font-size: 18px; line-height: 22px; color: #fff; text-align: left; font-weight: bold;" class="mobcenter mobpadx mobfont20 mobpadtop">
+                                                            <div class="ee_editable">
+                                                                4 bedroom home, <br> £615,000
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : BEGIN -->
+                                                    <tr>
+                                                        <td style="background-color: #00364e; padding: 0px 0px 0px 25px;" class="mobpadx">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tbody><tr>
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="center" width="50" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/4b5b0499-2e6f-4c6e-af84-634777b24a92" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                    <!-- RIGHT Column : BEGIN -->
+                                                                    <th valign="center" width="200" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 0px 20px 0px 20px; font-family: Arial, sans-serif ; font-size: 15px; line-height: 19px; color: #fff; text-align: left; font-weight: normal;" class="mobpadx mobpadicon mobcenter">
+                                                                                    <div class="ee_editable">
+                                                                                        Separate
+                                                                                        dining room
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : END -->
+                                                    <!-- 2 Even Columns : BEGIN -->
+
+                                                    <tr>
+                                                        <td style="background-color: #00364e; padding: 15px 0px 0px 25px ;" class="mobpadx">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tbody><tr>
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="center" width="50" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/7eaf66d5-032a-4be4-9531-67e77e814810" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                    <!-- RIGHT Column : BEGIN -->
+                                                                    <th valign="center" width="200" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding:  0px 100px 0px 20px; font-family: Arial, sans-serif ; font-size: 15px; line-height: 19px; color: #fff; text-align: left; font-weight: normal;" class="mobpadx mobpadicon mobcenter">
+                                                                                    <div class="ee_editable">
+                                                                                        Spacious living room
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : END -->
+                                                    <!-- 2 Even Columns : BEGIN -->
+                                                    <tr>
+                                                        <td style="background-color: #00364e; padding: 15px 0px 0px 25px  ;" class="mobpadx">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" ;="">
+                                                                <tbody><tr>
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="center" width="50" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/e1f11dd0-350c-46b9-b801-a778356bce12" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                    <!-- RIGHT Column : BEGIN -->
+                                                                    <th valign="center" width="200" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding:  0px 80px 0px 20px; font-family: Arial, sans-serif ; font-size: 15px; line-height: 19px; color: #fff; text-align: left; font-weight: normal;" class="mobpadx mobpadicon mobcenter">
+                                                                                    <div class="ee_editable">
+                                                                                        Private en suite
+                                                                                        to bedroom 1
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : END -->
+                                                    <tr>
+                                                        <td style="padding: 20px 0px 0px 25px; text-align: left; background-color: #00364e; line-height: 0px;">
+                                                            <div class="ee_editable mobcenter">
+                                                                <a href="https://www.charleschurch.com/new-homes/south-east/the-paddocks?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26"><img src="blob:http://localhost:3000/ed599af0-6136-4dd9-a053-49f574181870" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;"></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </th>
+                                            <!-- Column : END -->
+                                            <!-- RIGHT Column : BEGIN -->
+                                            <th valign="center" width="50%" class="stack-column-center">
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody><tr>
+                                                        <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                            <div class="ee_editable mobpadtop">
+                                                                <a href="https://www.charleschurch.com/new-homes/south-east/the-paddocks?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26" style="text-decoration: none; color: #000;">
+                                                                    <img src="blob:http://localhost:3000/fc5b9098-b0af-42e8-a37e-8ce44e5ce738" width="100%" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;"></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </th>
+                                            <!-- Column : END -->
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                            <!-- 2 Even Columns : END -->
+                        </tbody></table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #fff; padding: 10px 0px 0px 0px;" class="mobhide">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #00364e; padding: 22px 0px 22px 0px;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <!-- 2 Even Columns : BEGIN -->
+                            <tbody><tr>
+                                <td style="background-color: #00364e; padding: 0px 0px 0px 0px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="">
+                                        <tbody><tr>
+                                            <!-- LEFT Column : BEGIN -->
+                                            <th valign="center" width="50%" class="stack-column-center">
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody><tr>
+                                                        <td style="padding: 0px 0px 0px 25px; font-family: Georgia, serif; font-size: 22px; line-height: 26px; color: #fff; text-align: left; font-weight: normal;" class="mobcenter mobpadx mobfont20 mobpadtop">
+                                                            <div class="ee_editable mobfont25">
+                                                                The Carnaby, Plot 19
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding: 10px 0px 20px 25px; font-family: arial, sans-serif; font-size: 18px; line-height: 22px; color: #fff; text-align: left; font-weight: bold;" class="mobcenter mobpadx mobfont20 mobpadtop">
+                                                            <div class="ee_editable">
+                                                                4 bedroom home, <br> £675,000
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : BEGIN -->
+                                                    <tr>
+                                                        <td style="background-color: #00364e; padding: 0px 0px 0px 25px;" class="mobpadx">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tbody><tr>
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="center" width="50" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/32bc135b-b95f-4395-aa94-a08441811e59" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                    <!-- RIGHT Column : BEGIN -->
+                                                                    <th valign="center" width="200" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 0px 20px 0px 20px; font-family: Arial, sans-serif ; font-size: 15px; line-height: 19px; color: #fff; text-align: left; font-weight: normal;" class="mobpadx mobpadicon mobcenter">
+                                                                                    <div class="ee_editable">
+                                                                                        Separate utility room
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : END -->
+                                                    <!-- 2 Even Columns : BEGIN -->
+                                                    <tr>
+                                                        <td style="background-color: #00364e; padding: 15px 0px 0px 25px ;" class="mobpadx">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tbody><tr>
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="center" width="50" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/7ce06069-cdc4-429b-b8c2-d1d620879e79" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                    <!-- RIGHT Column : BEGIN -->
+                                                                    <th valign="center" width="200" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding:  0px 50px 0px 20px; font-family: Arial, sans-serif ; font-size: 15px; line-height: 19px; color: #fff; text-align: left; font-weight: normal;" class="mobpadx mobpadicon mobcenter">
+                                                                                    <div class="ee_editable">
+                                                                                        Kitchen/family area with double doors to the garden
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : END -->
+                                                    <!-- 2 Even Columns : BEGIN -->
+                                                    <tr>
+                                                        <td style="background-color: #00364e; padding: 15px 0px 0px 25px  ;" class="mobpadx">
+                                                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" ;="">
+                                                                <tbody><tr>
+                                                                    <!-- LEFT Column : BEGIN -->
+                                                                    <th valign="center" width="50" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                                                    <div class="ee_editable">
+                                                                                        <img src="blob:http://localhost:3000/f8d07dee-799e-48b8-bbf9-06dbdbbae1bc" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                    <!-- RIGHT Column : BEGIN -->
+                                                                    <th valign="center" width="200" class="stack-column-center">
+                                                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                            <tbody><tr>
+                                                                                <td style="padding:  0px 20px 0px 20px; font-family: Arial, sans-serif ; font-size: 15px; line-height: 19px; color: #fff; text-align: left; font-weight: normal;" class="mobpadx mobpadicon mobcenter">
+                                                                                    <div class="ee_editable">
+                                                                                        En suite to bedroom 1
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody></table>
+                                                                    </th>
+                                                                    <!-- Column : END -->
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    <!-- 2 Even Columns : END -->
+                                                    <tr>
+                                                        <td style="padding: 20px 0px 0px 25px; text-align: left; background-color: #00364e; line-height: 0px;">
+                                                            <div class="ee_editable mobcenter">
+                                                                <a href="https://www.charleschurch.com/new-homes/south-east/the-paddocks?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26"><img src="blob:http://localhost:3000/ed599af0-6136-4dd9-a053-49f574181870" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;"></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </th>
+                                            <!-- Column : END -->
+                                            <!-- RIGHT Column : BEGIN -->
+                                            <th valign="center" width="50%" class="stack-column-center">
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody><tr>
+                                                        <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                                            <div class="ee_editable mobpadtop">
+                                                                <a href="https://www.charleschurch.com/new-homes/south-east/the-paddocks?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26" style="text-decoration: none; color: #000;">
+                                                                    <img src="blob:http://localhost:3000/f8ef7b2b-c936-41be-be01-a8f76a7e01bb" width="100%" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;"></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </th>
+                                            <!-- Column : END -->
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                            <!-- 2 Even Columns : END -->
+                        </tbody></table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #fff; padding: 10px 0px 0px 0px;" class="mobhide">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #00364e; padding: 45px 0px 45px 0px;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tbody><tr>
+                                <td style="padding: 0px 0px 0px 0px; font-family: Georgia, serif; font-size: 40px; line-height: 45px; color: #fff; text-align: center; font-weight: normal;" class="mobpadx mobfont25">
+                                    <div class="ee_editable">
+                                        Call us or visit us
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 20px 0px 0px 0px; font-family: arial, sans-serif; font-size: 26px; line-height: 30px; color: #fff; text-align: center; font-weight: bold;" class="mobpadx mobfont18">
+                                    <div class="ee_editable">
+                                        Call us on <a href="tel:01892 573 084" style="text-decoration: none; color: #fff;">01892 573 084<sup style="font-size: 10px; line-height: 0;">‡</sup></a>
+                                </div></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 20px 90px 0px 90px; font-family: arial, sans-serif; font-size: 20px; line-height: 23px; color: #fff; text-align: center; font-weight: normal;" class="mobpadx mobfont18">
+                                    <div class="ee_editable">
+                                        Visit us at
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0px 140px 0px; font-family: arial, sans-serif; font-size: 20px; line-height: 23px; color: #fff; text-align: center; font-weight: normal;" class="mobpadx mobfont18">
+                                    <div class="ee_editable">
+                                        Charles Church at The Paddocks,
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0px 170px 0px; font-family: arial, sans-serif; font-size: 20px; line-height: 23px; color: #fff; text-align: center; font-weight: normal;" class="mobpadx mobfont18">
+                                    <div class="ee_editable">
+                                        Horsmonden, Tonbridge, Kent, <wbr>
+                                        TN12 8AR
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 20px 170px 0px; font-family: arial, sans-serif; font-size: 20px; line-height: 23px; color: #fff; text-align: center; font-weight: normal;" class="mobpadx mobfont18">
+                                    <div class="ee_editable">
+                                        Our marketing suite is open
+                                        7 days a week, 10am–5pm
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 40px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                    <div class="ee_editable mobpadx">
+                                        <a href="https://www.charleschurch.com/new-homes/south-east/the-paddocks?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26"><img src="blob:http://localhost:3000/afbdf5b9-00d1-49eb-a2cd-7f20dafb2633" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;"></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 35px 0px 0px 0px; text-align: center; background-color: #00364e; line-height: 0px;">
+                                    <div class="ee_editable">
+                                        <a href="https://www.charleschurch.com/?utm_source=on+the+market&amp;utm_medium=email&amp;utm_campaign=persimmon_focus_the+paddocks_on+the+market+email_25.03.26"><img src="blob:http://localhost:3000/15fc8c26-3fe4-4d58-b7c3-20441a12f284" width="" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #00364e; font-family: sans-serif;  color: #000000;"></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #ffffff; padding: 30px 30px 30px 0px;" class="mobpadx">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tbody><tr>
+                                <td style="padding: 0px 0px 0px 0px; font-family: arial, sans-serif; font-size: 10px; line-height: 13px; color: #00374f; text-align: left; font-weight: normal;" class=" mobcenter">
+                                    <div class="ee_editable">
+                                        Contact the development sales advisor for more information.
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0px 0px 0px; font-family: arial, sans-serif; font-size: 10px; line-height: 13px; color: #00374f; text-align: left; font-weight: normal;" class=" mobcenter">
+                                    <div class="ee_editable">
+                                       Imagery used is for illustration purposes only and accordingly each plot may vary. ‡Calls will be charged at five pence per minute from a BT landline and may cost considerably more from mobile and other phones. Contact your service provider for more details. Internal photography may feature upgraded items which are available at extra cost. Please contact the development for a personal quotation. External elevations including treatments, materials, window positions and sizes are subject to change at any time. Prices correct at time of broadcast.
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0px 0px 0px; font-family: arial, sans-serif; font-size: 10px; line-height: 13px; color: #00374f; text-align: left; font-weight: normal;" class=" mobcenter">
+                                    <div class="ee_editable">
+                                       *Part Exchange is available on selected plots and subject to status. Part Exchange is available to existing homeowners only. If you’re eligible for Part Exchange, we’ll organise the sale of your existing home from start to finish for you. We’ll agree a fair and realistic price for your house with you, based on independent estate agent valuations. A professional legal advisor is required to be engaged by you to carry out the legal formalities of buying the home and to represent your interests. You’ll still have to cover the costs of solicitor fees and any certifications (i.e. for gas and electrics etc) required as part of the normal selling/buying process. If you’re currently marketing your home, you’ll be responsible for all related costs with your current selling agent. It’s your responsibility to ensure you serve sufficient notice if signed up to a sole agency agreement or similar. Charles Church can provide you with a list of our recommended solicitors and/or financial advisors as necessary. Charles Church cannot advise you on a mortgage. Part Exchange is subject to availability and may be withdrawn at any time without notice. The Part Exchange scheme may not be available in conjunction with any other promotions or offers. Full details are available on request. YOUR HOME MAY BE REPOSSESSED IF YOU DO NOT KEEP UP REPAYMENTS ON YOUR MORTGAGE OR OTHER DEBT SECURED ON IT. Properties over 10 years old will be subject to a satisfactory Home Buyers Report as part of the buying process.
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0px 0px 0px; font-family: arial, sans-serif; font-size: 10px; line-height: 13px; color: #00374f; text-align: left; font-weight: normal;" class=" mobcenter">
+                                    <div class="ee_editable">
+                                        †Home Change scheme is available on selected plots, subject to status, terms and conditions apply. The scheme is available to existing homeowners only. A professional legal adviser is required to carry out the legal formalities of buying the home and to represent your interests. Charles Church can provide you with a list of recommended solicitors and/or financial advisers as necessary. Charles Church cannot advise you on a mortgage. Part Exchange schemes are subject to availability and may be withdrawn at any time without notice. Part Exchange schemes may not be available in-conjunction with any other promotions or offers. YOUR HOME MAY BE REPOSSESSED IF YOU DO NOT KEEP UP REPAYMENTS ON YOUR MORTGAGE OR OTHER DEBT SECURED ON IT. Full details available on request.
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- 2 Even Columns : BEGIN -->
+                            <tr>
+                                <td style="background-color: #ffffff; padding: 30px 0px 0px 0px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <!-- Column : BEGIN -->
+                                            <th valign="bottom" width="378" class="stack-column-center mobpadtop">
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody><tr>
+                                                        <td style="padding: 10px 162px 0px 0px; font-family: arial, sans-serif; font-size: 10px; line-height: 13px; color: #00374f; text-align: left; font-weight: normal;" class="mobpadx mobcenter">
+                                                            <div class="ee_editable">
+                                                                Copyright 2026 Charles Church. All Rights
+                                                                Reserved. Charles Church Developments Limited,
+                                                                Registered Office: Persimmon House, Fulford,
+                                                                York UK, YO19 4FE. Registered in England No.
+                                                                01182689
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </th>
+                                            <!-- Column : END -->
+                                            <!-- Column : BEGIN -->
+                                            <th valign="bottom" width="132" class="stack-column-center mobpadtop">
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody><tr>
+                                                        <td style="padding: 0px 0px 0px 0px; text-align: center; background-color: #ffffff; line-height: 0px;">
+                                                            <div class="ee_editable">
+                                                                <img src="blob:http://localhost:3000/ba70f387-ee25-421b-ae4f-486854e2193b" width="132" alt="alt_text" border="0" style="max-width: 100%; height: auto; background: #ffffff; font-family: sans-serif;  color: #000000;">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </th>
+                                            <!-- Column : END -->
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                            <!-- 2 Even Columns : END -->
+                        </tbody></table>
+                    </td>
+                </tr>
+        </tbody></table>
+        <!-- Email Body : END -->
+        
+        
+        
+        
+        <!--[if mso | IE]>
+    </td>
+    </tr>
+    </table>
+<![endif]-->
+    </center>
+
+
+</body></html>
